@@ -1,3 +1,15 @@
 .searchSection{
-    @apply w-5/12
+    @apply w-5/12 p-6
+}
+.sectionHeading{
+    @apply font-bold text-lg mb-2
+}
+.description{
+    @apply my-2
+}
+.areaDropdown{
+    @apply w-full h-10 border-2 pl-4
+}
+.searchButton{
+    @apply w-full h-10 bg-yellow-400 font-semibold mt-4 hover:bg-black hover:text-white
 }
