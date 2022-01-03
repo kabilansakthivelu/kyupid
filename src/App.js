@@ -1,9 +1,17 @@
-
+import Map from './Components/Map/Map';
+import Search from './Components/Search/Search';
+import Results from './Components/Results/Results';
+import Header from './Components/Header/Header';
+import Content from './Components/Content/Content';
 
 function App() {
   return (
     <div className="App">
-      <h1 className="text-red-500">Hello World</h1>
+      <Header/>
+      <Content/>
+      <Map/>
+      <Search/>
+      <Results/>
     </div>
   );
 }
