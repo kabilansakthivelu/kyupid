@@ -1,0 +1,6 @@
+.map{
+    @apply w-full h-screen
+}
+.leaflet-container{
+    @apply w-full h-5/6 rounded-xl
+}
