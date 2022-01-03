@@ -1,0 +1,6 @@
+.header{
+    @apply w-full h-12 bg-blue-600
+}
+.logo{
+    @apply text-white font-bold flex items-center h-full pl-8
+}
