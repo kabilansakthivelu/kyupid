@@ -5,22 +5,17 @@ import './Map.css';
 
 const Map = () => {
 
-    const {areas, selectedArea } = useContext(ValuesContext);
+    const {areas, selectedArea, selectedAreaDetails } = useContext(ValuesContext);
 
     let multiPolygon = [];
 
-    if(selectedArea){
-        let selectedAreaDetails = areas.find((area)=>{
-            return area.properties.name === selectedArea
-        })
+    if(selectedArea){ 
         let selectedAreaCoordinates = selectedAreaDetails.geometry.coordinates[0];
         for(let i=0; i<selectedAreaCoordinates.length;i++){
             let sortedArray = selectedAreaCoordinates[i].sort(function(a,b){return a-b});
             multiPolygon.push(sortedArray);
         }
     }
-
-    console.log(multiPolygon);
 
     return (
         <div className="map">
