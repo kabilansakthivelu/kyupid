@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useContext} from 'react';
+import React, {useEffect, useState, useContext, useRef} from 'react';
 import Map from '../Map/Map';
 import Search from '../Search/Search';
 import './Content.css';
@@ -9,6 +9,9 @@ const Content = () => {
 
     const [areas, setAreas] = useState([]);
     const [users, setUsers] = useState([]);
+    const [selectedArea, setSelectedArea] = useState();
+
+    const selectedAreaRef = useRef();
 
     const fetchingData = async() =>{
         const urls = ["https://kyupid-api.vercel.app/api/areas", "https://kyupid-api.vercel.app/api/users"];
@@ -22,10 +25,15 @@ const Content = () => {
         fetchingData();
     }, [])
 
+    const searchOperation = (e) =>{
+        e.preventDefault();
+        setSelectedArea(selectedAreaRef.current.value);
+    }
+
     return (
         <div className="content">
             <div className="contentModal">
-            <ValuesContext.Provider value={{areas, users}}>
+            <ValuesContext.Provider value={{areas, selectedAreaRef, searchOperation, selectedArea}}>
             <Search/>
             <Map/>
             </ValuesContext.Provider>

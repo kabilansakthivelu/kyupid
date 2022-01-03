@@ -8,8 +8,8 @@
     @apply my-2
 }
 .areaDropdown{
-    @apply w-full h-10 border-2 pl-4
+    @apply w-full h-10 border-2 pl-4 rounded-md
 }
 .searchButton{
-    @apply w-full h-10 bg-yellow-400 font-semibold mt-4 hover:bg-black hover:text-white
+    @apply w-full h-10 bg-yellow-400 font-semibold mt-4 hover:bg-black hover:text-white rounded-md
 }
