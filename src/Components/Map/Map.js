@@ -5,7 +5,7 @@ import './Map.css';
 
 const Map = () => {
 
-    const {areas, selectedArea, selectedAreaDetails } = useContext(ValuesContext);
+    const {areas, selectedArea } = useContext(ValuesContext);
 
     return (
         <div className="map">
@@ -23,10 +23,12 @@ const Map = () => {
                     let sortedArray = areaCoordinates[i].sort(function(a,b){return a-b});
                     multiPolygon.push(sortedArray);
                 }
-                let bgColor = ((area.properties.name === selectedArea) ? "red" : "gray");
+                let generalOptions = { color: "gray", fillColor : "gray", weight:2, opacity:0.7};
+                let selectedOptions = { color: "red", fillColor: "red", weight:4, opacity:1};
+                let pathOptions = ((area.properties.name === selectedArea) ? selectedOptions : generalOptions);
 
                 return(
-                    <Polygon pathOptions={{ color: bgColor }} positions={multiPolygon} key={area.properties.area_id}>
+                    <Polygon pathOptions={ pathOptions } positions={multiPolygon} key={area.properties.area_id}>
                         <Tooltip>{area.properties.name}</Tooltip>
                     </Polygon>
                 )
