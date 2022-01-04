@@ -7,18 +7,6 @@ const Map = () => {
 
     const {areas, selectedArea, selectedAreaDetails } = useContext(ValuesContext);
 
-    let multiPolygon = [];
-
-    //For getting the polygon coordinates
-
-    if(selectedArea){ 
-        let selectedAreaCoordinates = selectedAreaDetails.geometry.coordinates[0];
-        for(let i=0; i<selectedAreaCoordinates.length;i++){
-            let sortedArray = selectedAreaCoordinates[i].sort(function(a,b){return a-b});
-            multiPolygon.push(sortedArray);
-        }
-    }
-
     return (
         <div className="map">
            <MapContainer center={[12.967523251110662, 77.58927175907674]} zoom={11} scrollWheelZoom={true}>
@@ -26,9 +14,24 @@ const Map = () => {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Polygon pathOptions={{ color: 'purple' }} positions={multiPolygon}>
-                <Tooltip>{selectedArea}</Tooltip>
-            </Polygon>
+
+            {areas.map((area)=>{
+                let multiPolygon = [];
+                let areaCoordinates = [];
+                areaCoordinates = area.geometry.coordinates[0];
+                for(let i=0; i<areaCoordinates.length;i++){
+                    let sortedArray = areaCoordinates[i].sort(function(a,b){return a-b});
+                    multiPolygon.push(sortedArray);
+                }
+                let bgColor = ((area.properties.name === selectedArea) ? "red" : "gray");
+
+                return(
+                    <Polygon pathOptions={{ color: bgColor }} positions={multiPolygon} key={area.properties.area_id}>
+                        <Tooltip>{area.properties.name}</Tooltip>
+                    </Polygon>
+                )
+            })}
+            
         </MapContainer> 
         </div>
     )
