@@ -1,6 +1,6 @@
 .map{
-    @apply w-8/12 h-screen
+    @apply  w-full md:w-8/12 h-screen
 }
 .leaflet-container{
-    @apply w-full h-5/6 rounded-xl
+    @apply w-full md:h-5/6 h-full rounded-xl
 }

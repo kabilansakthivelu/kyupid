@@ -6,6 +6,8 @@ const Search = () => {
 
     const {areas, selectedAreaRef, searchFunction} = useContext(ValuesContext);
 
+    areas.sort(function(a,b){return a.properties.name.localeCompare(b.properties.name)});
+
     return (
         <div className="searchSection">
             <h1 className="sectionHeading">Search by Area</h1>
