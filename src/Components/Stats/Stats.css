@@ -1,0 +1,15 @@
+.stats{
+    @apply border-2 rounded-lg w-28 md:w-24 lg:w-28 h-20 md:h-24 lg:h-20 text-center p-4 bg-gray-100
+}
+.statsSection{
+    @apply my-6 flex flex-col items-center
+}
+.usersStats{
+    @apply flex space-x-3 mb-4
+}
+.statsValue{
+    @apply font-semibold text-lg
+}
+.statsHeadline{
+    @apply italic text-sm
+}

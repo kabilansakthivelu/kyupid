@@ -1,4 +1,5 @@
 import React, {useContext} from 'react';
+import Stats from '../Stats/Stats';
 import {ValuesContext} from '../Content/Content';
 import './Search.css';
 
@@ -12,6 +13,7 @@ const Search = () => {
 
     return (
         <div className="searchSection">
+            <Stats/>
             <h1 className="sectionHeading">Search by Area</h1>
             <hr />
             <p className="description">Filter out an area from the dropdown below to get more details about the users from that area in Bangalore.</p>

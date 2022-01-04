@@ -2,5 +2,5 @@
     @apply w-full h-12 bg-blue-600 fixed
 }
 .logo{
-    @apply text-white font-bold flex items-center h-full pl-14
+    @apply text-white text-xl font-bold flex items-center h-full pl-14
 }
