@@ -14,6 +14,8 @@ const Content = () => {
 
     const selectedAreaRef = useRef();
 
+    //Fetching data from APIs
+
     const fetchingData = async() =>{
         const urls = ["https://kyupid-api.vercel.app/api/areas", "https://kyupid-api.vercel.app/api/users"];
         const resp = await Promise.all(urls.map(url => fetch(url)));
@@ -26,6 +28,8 @@ const Content = () => {
         fetchingData();
     }, [])
 
+    // Search function for getting details about the selected Area
+
     const searchFunction = (e) =>{
         e.preventDefault();
         if(selectedAreaRef.current.value === "null"){
@@ -35,6 +39,8 @@ const Content = () => {
             setSelectedArea(selectedAreaRef.current.value);
         }
     }
+
+    //Back to search function for navigating back to Search from results page
 
     const backToSearchFunction = () =>{
         setSelectedArea();
@@ -48,7 +54,11 @@ const Content = () => {
         <div className="content">
             <div className="contentModal">
             <ValuesContext.Provider value={{areas, users, selectedAreaRef, searchFunction, selectedArea, backToSearchFunction, selectedAreaDetails}}>
+            
+            {/* If selectedArea is having a value, then display Results Component or else display Search component */}
+
             {selectedArea ? <Results/> : <Search/>}
+
             <Map/>
             </ValuesContext.Provider>
             </div>

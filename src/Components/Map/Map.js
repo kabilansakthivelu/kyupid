@@ -9,6 +9,8 @@ const Map = () => {
 
     let multiPolygon = [];
 
+    //For getting the polygon coordinates
+
     if(selectedArea){ 
         let selectedAreaCoordinates = selectedAreaDetails.geometry.coordinates[0];
         for(let i=0; i<selectedAreaCoordinates.length;i++){
@@ -19,7 +21,7 @@ const Map = () => {
 
     return (
         <div className="map">
-           <MapContainer center={[12.967523251110662, 77.58927175907674]} zoom={10} scrollWheelZoom={true}>
+           <MapContainer center={[12.967523251110662, 77.58927175907674]} zoom={11} scrollWheelZoom={true}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
